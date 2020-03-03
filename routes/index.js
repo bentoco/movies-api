@@ -6,9 +6,6 @@ const movieValidator = require('../validator/movie-validator');
 router
 .route('/catalog')
 .get(movieApi.catalog)
-
-router
-.route('/catalog/add')
 .post(movieValidator.validateMovie, movieApi.addMovie)
 
 module.exports = router;
