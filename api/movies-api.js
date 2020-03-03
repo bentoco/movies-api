@@ -23,10 +23,11 @@ const addMovie = (req, res) => {
 };
 
 const searchMovie = (req, res) => {
-    const movie = movies.find(c => c.id === parseInt(req.params.id));
+    const movie = movies.find(c => c.id === req.params.id);
     if(!movie) {
         return res.status(404).send('The movie with the given id was not found.');
     } 
+    return res.json(movie)
 };
 
 module.exports = {
