@@ -1,4 +1,5 @@
 [{
+    "id": "837786ce-6043-4058-819d-9e3126ac2d03",
     "titulo": "Coringa",
     "genero": ["Drama"],
     "direcao":"Todd Phillips",
@@ -7,6 +8,7 @@
     "sinopse": "Arthur Fleck (Joaquin Phoenix) trabalha como palhaço para uma agência de talentos e, toda semana, precisa comparecer a uma agente social, devido aos seus conhecidos problemas mentais. Após ser demitido, Fleck reage mal à gozação de três homens em pleno metrô e os mata. Os assassinatos iniciam um movimento popular contra a elite de Gotham City, da qual Thomas Wayne (Brett Cullen) é seu maior representante."
 },
 {
+    "id": "837786ce-6043-4058-819d-9e3126ac2d02",
     "titulo": "Coringa",
     "genero": ["Drama"],
     "direcao":"Todd Phillips",
@@ -15,6 +17,7 @@
     "sinopse": "Arthur Fleck (Joaquin Phoenix) trabalha como palhaço para uma agência de talentos e, toda semana, precisa comparecer a uma agente social, devido aos seus conhecidos problemas mentais. Após ser demitido, Fleck reage mal à gozação de três homens em pleno metrô e os mata. Os assassinatos iniciam um movimento popular contra a elite de Gotham City, da qual Thomas Wayne (Brett Cullen) é seu maior representante."
 },
 {
+    "id": "837786ce-6043-4058-819d-9e3126ac2d01",
     "titulo": "Midway - Batalha em Alto Mar",
     "genero": ["Ação","Histórico","Guerra"],
     "direcao":"Roland Emmerich",

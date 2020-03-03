@@ -4,8 +4,12 @@ const movieApi = require('../api/movies-api');
 const movieValidator = require('../validator/movie-validator');
 
 router
-.route('/catalog')
-.get(movieApi.catalog)
+.route('/movies')
+.get(movieApi.listMovies)
 .post(movieValidator.validateMovie, movieApi.addMovie)
+
+router
+.route('/movies/:id')
+.get(movieApi.searchMovie)
 
 module.exports = router;

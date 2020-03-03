@@ -1,16 +1,15 @@
 const movies = require('../movies.json');
-const uuid = require('uuid/v5');
+const { v4 } = require('uuid');
 
-const catalog = (req, res) => {
+const listMovies = (req, res) => {
     res.json(movies)
 };
 
 const addMovie = (req, res) => {
-
     const movie = {
         message: 'Created successfully.',
         data: {
-            id: uuid(),
+            id: v4(),
             titulo: req.body.titulo,
             genero: req.body.genero,
             direcao: req.body.direcao,
@@ -23,9 +22,17 @@ const addMovie = (req, res) => {
     res.status(201).json(movie);
 };
 
+const searchMovie = (req, res) => {
+    const movie = movies.find(c => c.id === parseInt(req.params.id));
+    if(!movie) {
+        return res.status(404).send('The movie with the given id was not found.');
+    } 
+};
+
 module.exports = {
-    catalog,
-    addMovie
+    listMovies,
+    addMovie,
+    searchMovie,
 };
 
 

@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const validateMovie = (req, res) => {
+const validateMovie = (req, res, next) => {
     const movies = req.body
     const schema = { 
         titulo: Joi.string().min(3).required(),
@@ -14,7 +14,8 @@ const validateMovie = (req, res) => {
     const { error } = Joi.validate(movies, schema);
     if (error) {
         return res.status(400).send(error.details[0].message);
-    } 
+    }
+    next();
 };
 
 module.exports = {
