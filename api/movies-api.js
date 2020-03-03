@@ -24,16 +24,44 @@ const addMovie = (req, res) => {
 
 const searchMovie = (req, res) => {
     const movie = movies.find(c => c.id === req.params.id);
-    if(!movie) {
+    if (!movie) {
         return res.status(404).send('The movie with the given id was not found.');
     } 
     return res.json(movie)
+};
+
+const updateMovie = (req, res) => {
+    const movie = movies.find(c => c.id === req.params.id);
+    if (!movie) {
+      return res.status(404).send('The movie with the given id was not found.');
+    }
+        movie.titulo =  req.body.titulo;
+        movie.genero = req.body.genero;
+        movie.direcao = req.body.direcao;
+        movie.elenco = req.body.elenco;
+        movie.duracao = req.body.duracao;
+        movie.sinopse = req.body.sinopse;
+        return res.json(movie)
+
+};
+
+const deleteMovie = (req, res) => {
+    const movie = movies.find(c => c.id === req.params.id);
+    if (!movie) {
+      return res.status(404).send('The movie with the given id was not found.');
+    }
+
+    const index = movies.indexOf(movie);
+    movies.splice(index, 1);
+    res.send(movie);
 };
 
 module.exports = {
     listMovies,
     addMovie,
     searchMovie,
+    updateMovie,
+    deleteMovie
 };
 
 
