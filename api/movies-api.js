@@ -51,12 +51,8 @@ const deleteMovie = (req, res) => {
       return res.status(404).send('The movie with the given id was not found.');
     }
 
-    // const index = movies.indexOf(movie);
-    // movies.splice(index, 1);
-    // res.send(movie);
-
     movies.filter(movie => {
-        movies.splice(movie)
+        movies.filter(movie)
         res.send('The movie has been deleted.')      
     })
 };
