@@ -12,6 +12,6 @@ router
 .route('/movies/:id')
 .get(movieApi.searchMovie)
 .put(movieValidator.validateMovie, movieApi.updateMovie)
-.delete(movieValidator.validateMovie, movieApi.deleteMovie)
+.delete(movieApi.deleteMovie)
 
 module.exports = router;

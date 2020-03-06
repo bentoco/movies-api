@@ -49,12 +49,13 @@ const deleteMovie = (req, res) => {
     const movie = movies.find(c => c.id === req.params.id);
     if (!movie) {
       return res.status(404).send('The movie with the given id was not found.');
-    }
-
-    movies.filter(movie => {
-        movies.filter(movie)
-        res.send('The movie has been deleted.')      
+    } 
+    
+    const filterMovie = movies.filter(m =>{
+        return m.id !== req.params.id;
     })
+    return res.send(filterMovie)
+
 };
 
 module.exports = {
