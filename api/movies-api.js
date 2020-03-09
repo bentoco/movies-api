@@ -48,7 +48,7 @@ const updateMovie = (req, res) => {
 const deleteMovie = (req, res) => {
     const filteredMovies = movies.filter(m => m.id !== req.params.id)
     if (filteredMovies.length === movies.length -1){
-        return res.status(200).json({message: `Movie deleted successfully.`})
+        return res.status(204).json({message: `Movie deleted successfully.`})
     } 
         return res.status(404).json({message: `The movie with id ${req.params.id} was not found.`})
 };
