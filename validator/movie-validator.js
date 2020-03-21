@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const validateMovie = (req, res, next, Movie) => {
+const validateMovie = (req, res, next) => {
     const movies = req.body
     const schema = { 
         title: Joi.string().min(3).required(),

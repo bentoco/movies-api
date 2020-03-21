@@ -9,14 +9,12 @@ const listMovies = (req, res) => {
 
 const addMovie = (req, res, next) => {
     const newMovie = {
-        
             title: req.body.title,
             categories: req.body.categories,
             director: req.body.director,
             stars: req.body.stars,
             time: req.body.time,
-            synopsis: req.body.synopsis
-        
+            synopsis: req.body.synopsis  
     }
 
     new Movie(newMovie).save().then(() => {
@@ -24,7 +22,10 @@ const addMovie = (req, res, next) => {
     }).catch((err) => {
         console.log("Failed to register new movie..."+ err)
     })
+
+    return res.json(newMovie)
     next();
+    
 }
 
 const searchMovie = (req, res) => {
