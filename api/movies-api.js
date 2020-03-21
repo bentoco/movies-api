@@ -1,26 +1,31 @@
-const movies = require('../movies.json');
-const { v4 } = require('uuid');
+const mongoose = require('mongoose')
+require('../models/Movie')
+const Movie = mongoose.model('movies')
+
 
 const listMovies = (req, res) => {
-    res.json(movies)
+    res.json(Movie)
 };
 
-const addMovie = (req, res) => {
-    const movie = {
-        message: 'Created successfully.',
-        data: {
-            id: v4(),
-            titulo: req.body.titulo,
-            genero: req.body.genero,
-            direcao: req.body.direcao,
-            elenco: req.body.elenco,
-            duracao: req.body.duracao,
-            sinopse: req.body.sinopse
-        }
-    };
-    movies.push(movie);
-    res.status(201).json(movie);
-};
+const addMovie = (req, res, next) => {
+    const newMovie = {
+        
+            title: req.body.title,
+            categories: req.body.categories,
+            director: req.body.director,
+            stars: req.body.stars,
+            time: req.body.time,
+            synopsis: req.body.synopsis
+        
+    }
+
+    new Movie(newMovie).save().then(() => {
+        console.log("New movie has been registred!")
+    }).catch((err) => {
+        console.log("Failed to register new movie..."+ err)
+    })
+    next();
+}
 
 const searchMovie = (req, res) => {
     const movie = movies.find(c => c.id === req.params.id);
@@ -35,12 +40,12 @@ const updateMovie = (req, res) => {
     if (!movie) {
       return res.status(404).send('The movie with the given id was not found.');
     }
-        movie.titulo =  req.body.titulo;
-        movie.genero = req.body.genero;
-        movie.direcao = req.body.direcao;
-        movie.elenco = req.body.elenco;
-        movie.duracao = req.body.duracao;
-        movie.sinopse = req.body.sinopse;
+        movie.title =  req.body.title;
+        movie.categories = req.body.categories;
+        movie.director = req.body.director;
+        movie.stars = req.body.stars;
+        movie.time = req.body.time;
+        movie.synopsis = req.body.synopsis;
         return res.json(movie)
 
 };

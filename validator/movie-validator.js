@@ -1,14 +1,14 @@
 const Joi = require('joi');
 
-const validateMovie = (req, res, next) => {
+const validateMovie = (req, res, next, Movie) => {
     const movies = req.body
     const schema = { 
-        titulo: Joi.string().min(3).required(),
-        genero: Joi.string().required(),
-        direcao: Joi.string().required(),
-        elenco: Joi.string().required(),
-        duracao: Joi.string().required(),
-        sinopse: Joi.string().min(20).max(250)
+        title: Joi.string().min(3).required(),
+        categories: Joi.string().required(),
+        director: Joi.string().required(),
+        stars: Joi.string().required(),
+        time: Joi.string().required(),
+        synopsis: Joi.string().min(20).max(250)
     };
     
     const { error } = Joi.validate(movies, schema);
