@@ -3,29 +3,30 @@ require('../models/Movie')
 const Movie = mongoose.model('movies')
 
 
-const listMovies = (req, res) => {
-    res.json(Movie)
+const listMovies = async (req, res) => {
+    try {
+        const movies = await Movie.find()
+        res.json(movies)
+    } catch (err) {
+        res.status(500).json({message: err.massage})
+    }
 };
 
-const addMovie = (req, res, next) => {
-    const newMovie = {
+const addMovie = async (req, res) => {
+        const movie = new Movie({
             title: req.body.title,
             categories: req.body.categories,
             director: req.body.director,
             stars: req.body.stars,
             time: req.body.time,
-            synopsis: req.body.synopsis  
-    }
-
-    new Movie(newMovie).save().then(() => {
-        console.log("New movie has been registred!")
-    }).catch((err) => {
-        console.log("Failed to register new movie..."+ err)
-    })
-
-    return res.json(newMovie)
-    next();
-    
+            synopsis: req.body.synopsis      
+        })
+        try {
+            const newMovie = await movie.save();
+            res.status(201).json({ newMovie })
+        } catch (err) {
+            res.status(400).json({ message: err.massage})
+        }
 }
 
 const searchMovie = (req, res) => {
