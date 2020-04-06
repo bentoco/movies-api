@@ -10,7 +10,7 @@ router
 
 router
 .route('/movies/:id')
-.get(movieApi.searchMovie)
+.get(movieApi.getMovie)
 .put(movieValidator.validateMovie, movieApi.updateMovie)
 .delete(movieApi.deleteMovie)
 
