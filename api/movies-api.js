@@ -7,7 +7,7 @@ const listMovies = async (req, res) => {
         const movies = await Movie.find()
         res.json(movies)
     } catch (err) {
-        res.status(404).json({message: err.message})
+        res.status(404).json({ message: err.message })
     }
 };
 
@@ -33,7 +33,7 @@ const getMovie = (req, res) => {
        res.status(200).send(result)
    }).catch(err => {
        res.send(err)
-   }) 
+   })
 }
 
 const updateMovie = (req, res) => {
@@ -52,22 +52,6 @@ const updateMovie = (req, res) => {
             res.status(201).json({ updateMovie }) 
         })
 }
-
-
-// const updateMovie = (req, res) => {
-//     const movie = movies.find(c => c.id === req.params.id);
-//     if (!movie) {
-//       return res.status(404).send('The movie with the given id was not found.');
-//     }
-//         movie.title =  req.body.title;
-//         movie.categories = req.body.categories;
-//         movie.director = req.body.director;
-//         movie.stars = req.body.stars;
-//         movie.time = req.body.time;
-//         movie.synopsis = req.body.synopsis;
-//         return res.json(movie)
-
-// };
 
 const deleteMovie = (req, res) => {
     const filteredMovies = movies.filter(m => m.id !== req.params.id)
