@@ -1,9 +1,9 @@
 const { MongoClient } = require("mongodb");
-const { DB_USER, DB_PASS, DB_CLUSTER } = process.env;
+const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
 
 async function main() {
   const uri =
-    "mongodb+srv://bento:610924@movies-api.qnlcg.gcp.mongodb.net/movies-api?retryWrites=true&w=majority";
+    "mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority";
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
