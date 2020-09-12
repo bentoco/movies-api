@@ -12,7 +12,8 @@ Node.js application with Sample Data loaded into MongoDB Atlas cluster.
 - PORT
 - DB_USER
 - DB_PASS
-- DB_CLUSTER
+- DB_HOST
+- DB_NAME
 
 ### Running
 
