@@ -8,10 +8,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test",
-      "...": "..."
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "author": "Gabriel Bento",
   "license": "ISC",
@@ -26,6 +29,7 @@
   "devDependencies": {
     "eslint": "^7.8.1",
     "husky": "^4.3.0",
+    "lint-staged": ">=10",
     "prettier": "2.1.1"
   }
 }
