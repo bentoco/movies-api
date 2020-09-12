@@ -4,7 +4,7 @@ Node.js application with Sample Data loaded into MongoDB Atlas cluster.
 
 ## Requirements
 
-- Node.js v10+
+- Node.js v12+
 - MongoDB Atlas [video tutorial](https://developer.mongodb.com/quickstart/free-atlas-cluster)
 
 ## Environment Variables
