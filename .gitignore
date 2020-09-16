@@ -1,5 +1,6 @@
 .env
 .prettierignore
 .eslintignore
+.eslintcache
 node_modules/
 
