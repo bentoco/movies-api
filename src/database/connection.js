@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { MongoClient } = require('mongodb')
 const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env
 

@@ -23,6 +23,7 @@ Node.js application with Sample Data loaded into MongoDB Atlas cluster.
 ## Resources
 
 -   [Connect to a MongoDB Database Using Node.js](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database)
+-   [MongoDB Quick Start](https://github.com/mongodb-developer/nodejs-quickstart)
 -   [Load Sample Data into Your Atlas Cluster](https://docs.atlas.mongodb.com/sample-data/)
 -   [Prettier](https://prettier.io/docs/en/install.html)
 -   [ESLint](https://eslint.org/docs/user-guide/getting-started)
