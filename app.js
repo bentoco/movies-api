@@ -1,9 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const router = require('./src/routes')
-const port = process.env.PORT
 require('dotenv').config()
+const router = require('./routes')
+const port = process.env.PORT || 3000
 
 app.use(
     bodyParser.urlencoded({
