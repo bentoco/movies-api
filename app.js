@@ -6,13 +6,8 @@ const db = require('./src/database/connection')
 const router = require('./routes')
 const port = process.env.PORT || 3000
 
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-)
 app.use(bodyParser.json())
-app.use(router)
+app.use('/api', router)
 
 app.listen(port, () => {
     console.log(`Movies API works on port ${port}...`)

@@ -30,7 +30,14 @@ const run = async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }
-    await mongoose.connect(uri, options)
+    mongoose.connect(uri, options, (err, database) => {
+        if (err) throw err
+        return database
+    })
 }
 
-run().catch((error) => console.error(error))
+;(async () => {
+    await run()
+})()
+
+module.exports = { run }
