@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+    api:
+        build: ./
+        container_name: movies-api
+        restart: always
+        env_file:
+            - .env
+        ports:
+            - ${SERVER_PORT}:3000
+        working_dir: /usr/src/app
+        command: npm run start
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '10m'
+                max-file: '5'
